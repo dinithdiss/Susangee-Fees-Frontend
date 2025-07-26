@@ -1,6 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/", "destination": "/tours" },
-    { "source": "/(.*)", "destination": "/" }
-  ]
-}
