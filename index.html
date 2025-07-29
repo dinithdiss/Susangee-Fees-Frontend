@@ -523,10 +523,17 @@
                 transform: translateX(-100%);
                 z-index: 1002;
                 width: 70px;
+                transition: transform 0.3s ease;
             }
 
             .sidebar.open {
                 transform: translateX(0);
+            }
+
+            /* Ensure logout button is visible when sidebar is open */
+            .sidebar.open .logout-button {
+                display: flex;
+                opacity: 1;
             }
 
             .main-content {
@@ -547,80 +554,107 @@
                 padding: 15px;
             }
 
-            .card {
-                padding: 15px;
-                margin-bottom: 15px;
+            /* Additional fix: ensure nav-bottom is always visible */
+            .nav-bottom {
+                margin-top: auto;
+                padding-top: 20px;
+                display: flex;
+                justify-content: center;
             }
 
-            .card-title {
+            /* Alternative: Add logout button to header on mobile */
+            .mobile-logout-btn {
+                display: block;
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                z-index: 1001;
+                background: rgba(220, 53, 69, 0.9);
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                color: white;
                 font-size: 16px;
-            }
-
-            .filter-controls {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-
-            .filter-input-container {
-                min-width: auto;
-            }
-
-            .table-container {
-                margin: 0 -15px;
-                padding: 0 15px;
-            }
-
-            .table th,
-            .table td {
-                padding: 8px 6px;
-                font-size: 13px;
-            }
-
-            .table th:first-child,
-            .table td:first-child {
-                padding-left: 10px;
-            }
-
-            .table th:last-child,
-            .table td:last-child {
-                padding-right: 10px;
-            }
-
-            .status-badge {
-                padding: 4px 8px;
-                font-size: 11px;
-            }
-
-            .action-button {
-                padding: 6px 12px;
-                font-size: 11px;
-            }
-
-            .dashboard-tabs {
-                gap: 10px;
-                margin-bottom: 20px;
-            }
-
-            .tab-button {
-                padding: 10px 16px;
-                font-size: 14px;
-            }
-
-            .settings-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .login-card {
-                padding: 30px 25px;
-                margin: 20px;
-            }
-
-            .login-title {
-                font-size: 20px;
+                cursor: pointer;
+                backdrop-filter: blur(10px);
             }
         }
+
+        .card {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 16px;
+        }
+
+        .filter-controls {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .filter-input-container {
+            min-width: auto;
+        }
+
+        .table-container {
+            margin: 0 -15px;
+            padding: 0 15px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px 6px;
+            font-size: 13px;
+        }
+
+        .table th:first-child,
+        .table td:first-child {
+            padding-left: 10px;
+        }
+
+        .table th:last-child,
+        .table td:last-child {
+            padding-right: 10px;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            font-size: 11px;
+        }
+
+        .action-button {
+            padding: 6px 12px;
+            font-size: 11px;
+        }
+
+        .dashboard-tabs {
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+
+        .settings-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .login-card {
+            padding: 30px 25px;
+            margin: 20px;
+        }
+
+        .login-title {
+            font-size: 20px;
+        }
+
 
         @media (max-width: 480px) {
             .header {
